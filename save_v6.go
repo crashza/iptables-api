@@ -37,7 +37,7 @@ func saveRulesV6(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	err = ioutil.WriteFile("/etc/iptables/rules.v6", stdout, 0644) // nolint: gosec
+	err = ioutil.WriteFile(*rules6File, stdout, 0644) // nolint: gosec
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 
@@ -51,7 +51,7 @@ func saveRulesV6(w http.ResponseWriter, r *http.Request) {
 	}
 	currentTime := time.Now().Local()
 	dstFile := []string{*savePath, "rules.v6.", currentTime.Format("2006-01-02"), ".", currentTime.Format("15-04-05")}
-	cmd := exec.Command("cp", "/etc/iptables/rules.v6", strings.Join(dstFile, ""))
+	cmd := exec.Command("cp", *rules6File, strings.Join(dstFile, ""))
 	err = cmd.Run()
 	if err != nil {
 		http.Error(w, err.Error(), 500)

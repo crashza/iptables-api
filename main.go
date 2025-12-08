@@ -29,6 +29,8 @@ var (
 	respErr      error
 	htpasswdfile *string
 	savePath     *string
+	rulesFile     *string
+	rules6File     *string
 )
 
 func main() {
@@ -40,6 +42,8 @@ func main() {
 	accessLogFile := flag.String("log", "/var/log/iptables-api.access.log", "file for access log")
 	htpasswdfile = flag.String("htpasswd", "", "htpasswd file for login:password")
 	savePath = flag.String("savepath", "/var/backups/iptables-api/", "path for backups file on /save")
+	rulesFile = flag.String("rulesfile", "/etc/sysconfig/iptables", "file to save v4 rules in on /save")
+	rules6File = flag.String("rulesfile", "/etc/sysconfig/ip6tables", "file to save v6 rules in on /save")
 
 	flag.Parse()
 
