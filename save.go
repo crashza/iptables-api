@@ -52,7 +52,7 @@ func saveRules(w http.ResponseWriter, r *http.Request) {
 
 	currentTime := time.Now().Local()
 	dstFile := []string{*savePath, "rules.v4.", currentTime.Format("2006-01-02"), ".", currentTime.Format("15-04-05")}
-	cmd := exec.Command("cp", rulesFile, strings.Join(dstFile, ""))
+	cmd := exec.Command("cp", *rulesFile, strings.Join(dstFile, ""))
 	err = cmd.Run()
 	if err != nil {
 		http.Error(w, err.Error(), 500)
