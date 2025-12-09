@@ -1,8 +1,5 @@
 # iptables-api
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/crashza/iptables-api)
-[![Go Status](https://github.com/jeremmfr/iptables-api/workflows/Go%20Tests/badge.svg)](https://github.com/jeremmfr/iptables-api/actions)
-[![Lint Status](https://github.com/jeremmfr/iptables-api/workflows/GolangCI-Lint/badge.svg)](https://github.com/jeremmfr/iptables-api/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jeremmfr/iptables-api)](https://goreportcard.com/report/github.com/jeremmfr/iptables-api)
 
 Create API REST for iptables command
 
@@ -16,21 +13,26 @@ Run:
     ./iptables-api -h
 	Usage of /root/iptables-api:
 	  -cert string
-	        file of certificat for https
-	  -htpasswd string
-	        htpasswd file for login:password
-	  -https
-	        https = true or false
-	  -ip string
-	        listen on IP (default "127.0.0.1")
-	  -key string
-	        file of key for https
-	  -log string
-	        file for access log (default "/var/log/iptables-api.access.log")
-	  -port string
-	        listen on port (default "8080")
-	  -save_path string
-			path for backups => /save (default "var/backups/iptables-api/")
+    		file of certificat for https
+ 	 -htpasswd string
+   	 		htpasswd file for login:password
+  	-https
+    		https = true or false
+  	-ip string
+    		listen on IP (default "127.0.0.1")
+  	-key string
+    		file of key for https
+  	-log string
+    		file for access log (default "/var/log/iptables-api.access.log")
+  	-port string
+    		listen on port (default "8080")
+  	-rules6file string
+    		file to save v6 rules in on /save (default "/etc/sysconfig/ip6tables")
+  	-rulesfile string
+    		file to save v4 rules in on /save (default "/etc/sysconfig/iptables")
+  	-savepath string
+    		path for backups file on /save (default "/var/backups/iptables-api/")
+
 
     ./iptables-api -https -ip=192.168.0.1 -port=8443 -log=/var/log/iptables-api.access.log -cert=cert.pem -key=key.pem -htpasswd=/root/.htpasswd
 
